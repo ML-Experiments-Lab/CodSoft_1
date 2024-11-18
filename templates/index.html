@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Churn Prediction</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url('https://media.istockphoto.com/photos/customer-experience-inscription-social-networking-concept-business-picture-id1317706283?k=20&m=1317706283&s=612x612&w=0&h=Zz7ht3hr3Fv5szTxK_7TjGv4t8fbfhWbLg9tGshp1n0=');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            color: white;
+        }
+
+        .container {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Customer Churn Prediction</h2>
+        <form method="POST">
+            <div class="form-group">
+                <label for="CreditScore">Credit Score</label>
+                <input type="number" id="CreditScore" name="CreditScore" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="Geography">Geography</label>
+                <select class="form-control" id="Geography" name="Geography" required>
+                    <option value="France">France</option>
+                    <option value="Germany">Germany</option>
+                    <option value="Spain">Spain</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Gender">Gender</label>
+                <select class="form-control" id="Gender" name="Gender" required>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Age">Age</label>
+                <input type="number" id="Age" name="Age" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="Balance">Balance</label>
+                <input type="number" id="Balance" name="Balance" class="form-control" step="0.01" required>
+            </div>
+
+            <div class="form-group">
+                <label for="NumOfProducts">Number of Products</label>
+                <input type="number" id="NumOfProducts" name="NumOfProducts" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="IsActiveMember">Is Active Member</label>
+                <select class="form-control" id="IsActiveMember" name="IsActiveMember" required>
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Predict Churn</button>
+        </form>
+
+        {% if churn_prediction %}
+        <h3 class="mt-3">Churn Prediction: {{ churn_prediction }}</h3>
+        {% endif %}
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>
